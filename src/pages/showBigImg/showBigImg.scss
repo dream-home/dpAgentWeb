@@ -1,0 +1,32 @@
+page-showBigImg{
+		.toolbar-background-ios {
+		  background: #000;
+		}
+		.scroll-content{
+		   background-color:#000;
+		}
+		.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+		    color: #fff;
+		    background-color: transparent;
+		}
+
+		
+		.swiper-pagination-bullet {
+		  width: 8px;
+		  height: 8px;
+		  display: inline-block;
+		  border-radius: 100%;
+		  background: #fff;
+		  opacity:1;
+		  pointer-events: auto;
+		}
+		.swiper-pagination-bullet-active {
+			  opacity: 1;
+			  background: red;
+			}
+		ion-slide img{
+			max-height:100%;
+			max-width:100%;
+		}
+
+}

@@ -1,0 +1,49 @@
+page-employeeList{
+   /*默认的修改头部返回箭头的样式*/
+        .bar-button-ios {
+          padding: 0 4px;
+          height: 25px;
+          border-radius: 4px;
+           font-size: 1.2rem; 
+        }
+        .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+            color: #333;
+            background-color: transparent;
+        }
+    .addEmployee{
+        color:#FF651E;
+        background:none;
+        margin-top:5px;
+    }
+    .employeeList{
+        padding:0;
+        .employeeListTarget{
+            background:#fff;
+            margin-top:3px;
+            ion-col{
+                font-size:14px;
+                color:#999;
+            }
+        }
+        .employeeListInfo{
+            margin:0 !important;
+            ion-row{
+                background:#fff;
+                margin-top:1px;
+                font-size:14px;
+                line-height: 20px;
+                ion-col:nth-child(3){
+                    span:nth-child(1){
+                        text-decoration:underline;
+                        color:#1eb8ff;
+                    }
+                    span:nth-child(2){
+                        text-decoration:underline;
+                        color:#999;
+                        margin-left:5px;
+                    }
+                }
+            }
+        }
+    }
+}

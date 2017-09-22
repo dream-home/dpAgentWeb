@@ -1,0 +1,81 @@
+<ion-header>
+   <ion-toolbar>
+  		<ion-buttons start>
+	          <button ion-button icon-only (click)="goToBackPage()">
+	            <ion-icon name="arrow-back"></ion-icon>
+	          </button>
+        </ion-buttons>
+        <ion-title center>选择地区</ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+	<ion-grid nopadding nomargin  style="background-color: #fff;" *ngIf="flag==1">
+		<ion-row>
+			<ion-col style="color: red;"> 
+				当前选择地区：{{addrCityName}}&nbsp;&nbsp;{{addrCountyName}}
+
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col > 
+				点击左上返回箭头即可查看当前选择地区的商家列表
+			</ion-col>
+		</ion-row>
+		<ion-row class="addrs">
+			<ion-col col-3>
+				<div [class.nobg]="!isShow" (click)="selectQuxian(1)" >选择城市&gt;</div>
+			</ion-col>
+			<ion-col col-3>
+				<div [class.nobg]="isShow" (click)="selectQuxian(2)">选择区县&gt;</div>
+			</ion-col>
+		</ion-row>
+		<ion-row class="addrs" *ngIf="isShow">
+			<ion-col col-4>
+				<div (click)="selectAddr(1,'全部城市')">全部城市</div>
+			</ion-col>
+			<ion-col col-4 *ngFor="let city of citys">
+				<div  (click)="selectAddr(1,city.text,city.value)">{{city.text}}</div>
+			</ion-col>
+		</ion-row>
+		<ion-row class="addrs" *ngIf="!isShow">
+			<ion-col col-4 *ngIf="addrCityName!=''">
+				<div (click)="selectAddr(2,'全部区县')">全部区县</div>
+			</ion-col>
+			<ion-col col-4 *ngFor="let county of countys">
+				<div  (click)="selectAddr(2,county.text,county.value)">{{county.text}}</div>
+			</ion-col>
+			<ion-col *ngIf="addrCityName==''" style="color: red;">
+				请先选择城市，再选择对应的区县哦。
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-grid nopadding nomargin  style="background-color: #fff;" *ngIf="flag==2">
+		<ion-row>
+			<ion-col style="color: red;"> 
+				当前选择地区：{{addrCityName}}&nbsp;&nbsp;{{addrCountyName}}
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col > 
+				点击左上返回箭头即可查看当前选择地区的商家列表
+			</ion-col>
+		</ion-row>
+		<ion-row class="addrs">
+			<ion-col col-3>
+				<div >选择区县&gt;</div>
+			</ion-col>
+		</ion-row>
+		<ion-row class="addrs">
+			<ion-col col-4>
+				<div (click)="selectAddr(2,'全部区县')">全部区县</div>
+			</ion-col>
+			<ion-col col-4 *ngFor="let county of countys">
+				<div  (click)="selectAddr(2,county.text,county.value)">{{county.text}}</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

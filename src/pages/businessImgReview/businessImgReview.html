@@ -1,0 +1,40 @@
+<ion-header>
+   <ion-toolbar>
+  		<ion-buttons start>
+	          <button ion-button icon-only (click)="goToBackPage()">
+	            <ion-icon name="arrow-back"></ion-icon>
+	          </button>
+        </ion-buttons>
+        <ion-title center>商家商城图片审核</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div *ngIf="items!=null">
+		<ion-grid *ngFor="let itm of items" nopadding nomargin style="background-color: #fff; border:none;" class="shopInfo">
+				<ion-row>
+					<ion-col >
+						{{itm.storeName}}
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col class="havabg imgs3">
+						<div class="warpimg" *ngFor="let good of itm.goods" >
+							<img src="{{good.icon}}" (click)="gotoImgReviewPage(good.goodsId)">
+						</div>
+					</ion-col>
+				</ion-row>
+				{{items.goods}}
+		</ion-grid>
+		<div *ngIf="items.length>0">
+			 <p *ngIf="show" style="text-align: center;color: #666;;">下拉加载更多...</p>
+		     <p *ngIf="!show"  style="text-align: center;color: #666;;">已经全部加载完了...</p>
+	    </div>
+	</div>
+	<div style="width:100%; height: 100%; background-color: #fff; text-align: center;"  *ngIf="items==null||items.length==0">
+      <img src="assets/images/null.png" style="margin:0 auto; max-width: 100%; margin-top: 40px;">
+    </div>
+	 <ion-infinite-scroll *ngIf="showScroll" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

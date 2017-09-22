@@ -1,0 +1,49 @@
+
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>区域统计</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+<ion-content style="background:#e5e5e5;">
+    <ion-list class="areaCount" *ngIf="areaInfo!=null">
+        <ion-row class="areaBusinessTitle">
+            <ion-col>区域商家</ion-col>
+        </ion-row>
+        <ion-row class="areaBusiness">
+            <ion-col>
+                <img src="assets/images/quyu2.png"/>
+                <div><span>商家总数</span><span>{{areaInfo.allStoreCount}}&nbsp;&nbsp;家</span></div>
+                <div><span>今日入驻</span><span>{{areaInfo.todayStoreCount}}&nbsp;&nbsp;家</span></div>
+                <div><span>本月入驻</span><span>{{areaInfo.monthStoreCount}}&nbsp;&nbsp;家</span></div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="businessTurnoverTitle">
+            <ion-col>商家销售成交额</ion-col>
+        </ion-row>
+        <ion-row class="businessTurnover">
+            <ion-col>
+                <img src="assets/images/chengjiao.png"/>
+                <div><span>今日成交</span><span>¥&nbsp;{{areaInfo.todayExCount}}</span></div>
+                <div><span>本月成交</span><span>¥&nbsp;{{areaInfo.monthExCount}}</span></div>
+                <div><span>累计成交</span><span>¥&nbsp;{{areaInfo.allExCount}}</span></div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="EPGiveTitle">
+            <ion-col>消费EP赠送</ion-col>
+        </ion-row>
+        <ion-row class="EPGive">
+            <ion-col>
+                <img src="assets/images/ZS.png"/>
+                <div><span>今日数量</span><span>{{areaInfo.todayEpCount}}&nbsp;&nbsp;个</span></div>
+                <div><span>本月数量</span><span>{{areaInfo.monthEpCount}}&nbsp;&nbsp;个</span></div>
+                <div><span>累计数量</span><span>{{areaInfo.allEpCount}}&nbsp;&nbsp;个</span></div>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+</ion-content>

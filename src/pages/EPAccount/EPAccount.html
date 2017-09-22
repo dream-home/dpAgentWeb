@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar color="yanbao">
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToBackPage()" >
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title center>EP账户</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="background:#e5e5e5;">
+    <ion-grid class="EPAccount_content">
+        <ion-row class="EPAssets">
+            <ion-col class="EPAssets_img">
+                <img src="assets/images/EPAccount_myEP.png"/>
+            </ion-col>
+            <ion-col class="EPAssets_amount" >
+                <div *ngIf="infos!=null">{{infos.exchangeEP}}</div>
+            </ion-col>
+            <ion-col text-center class="EPAssets_send">
+                <button (click)="gotoEPGivePage()">EP赠送</button>
+            </ion-col>
+        </ion-row>
+        <ion-row class="income_Expenditure">
+            <ion-col text-center>操作</ion-col>
+            <ion-col text-center>收入/支出</ion-col>
+            <ion-col text-center>对方账户</ion-col>
+        </ion-row>
+        <ion-row class="EPAccount_infoNull" *ngIf="items==null">
+            <ion-col>
+                <img src="assets/images/null2.png"/>
+            </ion-col>
+        </ion-row>
+        <ion-grid class="EPAccount_info" *ngIf="items!=null">
+            <ion-list style="margin:0;" *ngFor="let itm of items">
+                <ion-row class="EPAccount_info_data">
+                    <ion-col>{{commonService.dateFormatLong(itm.createTime,'yyyy-MM-dd HH:mm:ss')}}</ion-col>
+                </ion-row>
+                <ion-row class="EPAccount_info_from">
+                    <ion-col text-center>
+                        <span>{{itm.recordTypeDesc}}</span>
+                    </ion-col>
+                    <ion-col text-center>
+                        <span *ngIf="itm.ep>0" >+{{itm.ep}}</span>
+                        <span *ngIf="itm.ep<0" style="color:#1eb8ff;">{{itm.ep}}</span>
+                        <span *ngIf="itm.ep>0" >收入</span>
+                        <span *ngIf="itm.ep<0" style="color:#1eb8ff;">支出</span>
+                    </ion-col>
+                    <ion-col text-center>
+                        <span *ngIf="itm.ep>0" >{{itm.sendUserName}}</span>
+                        <span *ngIf="itm.ep<0" >{{itm.receiveUserName}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+             <div *ngIf="items.length>0">
+                 <p *ngIf="show" style="text-align: center;color: #666;">下拉加载更多...</p>
+                 <p *ngIf="!show"  style="text-align: center;color: #666;">已经全部加载完了...</p>
+            </div>
+        </ion-grid>
+    </ion-grid>
+
+ <ion-infinite-scroll *ngIf="showScroll" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,71 @@
+page-essentialInfor{
+    /*默认的修改头部返回箭头的样式*/
+        .bar-button-ios {
+          padding: 0 4px;
+          height: 25px;
+          border-radius: 4px;
+           font-size: 1.2rem; 
+        }
+        .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+            color: #333;
+            background-color: transparent;
+        }
+        
+    .basicInfo{
+        background:#fff;
+        padding:0 0 10px 0;
+        margin:0;
+        .agentInfo{
+            background: #f3b700;
+            color:#fff;
+            margin-bottom:10px;
+            ion-col{
+                padding:5px 5px 5px 10px;
+            }
+        }
+        ion-row{
+            ion-col{
+                padding:6px 5px 6px 25px;
+            }
+        }
+    }
+    .bankInfo{
+        background:#fff;
+        padding:0 0 10px 0;
+        margin:0;
+        .bankInfoTitle{
+            background: #f3b700;
+            color:#fff;
+            margin-bottom:10px;
+            ion-col{
+                padding:5px 5px 5px 10px;
+            }
+        }
+        ion-row{
+            ion-col{
+                padding:6px 5px 6px 25px;
+            }
+        }
+    }
+    .qualificationInfo{
+        background:#fff;
+        padding:0 0 10px 0;
+        margin:0;
+        .qualificationInfoTitle{
+            background: #f3b700;
+            color:#fff;
+            margin-bottom:10px;
+            ion-col{
+                padding:5px 5px 5px 10px;
+            }
+        }
+        .qualificationInfoImg{
+            ion-col{
+                text-align:center;
+                img{
+                    width:90%;
+                }
+            }
+        }
+    }
+}

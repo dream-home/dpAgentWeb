@@ -1,0 +1,46 @@
+page-areaCount{
+      /*默认的修改头部返回箭头的样式*/
+        .bar-button-ios {
+          padding: 0 4px;
+          height: 25px;
+          border-radius: 4px;
+           font-size: 1.2rem; 
+        }
+        .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+            color: #333;
+            background-color: transparent;
+        }
+    .areaCount{
+        margin:0;
+        .areaBusinessTitle,.businessTurnoverTitle,.EPGiveTitle{
+            background: #f3b700;
+            color:#fff;
+            ion-col{
+                padding:5px 5px 5px 10px;
+            }
+        }
+        .areaBusiness,.businessTurnover,.EPGive{
+            background:#fff;
+            ion-col{
+                img{
+                    width:30%;
+                    float:left;
+                }
+                div{
+                    float:left;
+                    width:70%;
+                    height:33%;
+                    line-height:36px;
+                    span:nth-child(1){
+                        color:#999;
+                        margin-left:20px;
+                    }
+                    span:nth-child(2){
+                        color:#999;
+                        margin-left:20px;
+                    }
+                }
+            }
+        }
+    }
+}

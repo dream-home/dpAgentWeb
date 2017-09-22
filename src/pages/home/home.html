@@ -1,0 +1,92 @@
+<ion-header >
+    <ion-toolbar color="yanbao">
+        <ion-title center style="padding: 0;">欢迎使用斗拍代理系统</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="background:#e5e5e5;">
+	<ion-grid  nomargin style="background-color: #fff; padding: 0;">
+		<ion-row>
+			<ion-col><h1 class="Company_name">深圳市斗拍电子商务有限公司</h1></ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="hui_color">
+				<span style="color:#1eb8ff;margin-right:5px;letter-spacing: 2px;">欢迎{{commonService.user.userName}}登录</span>
+				<span>{{commonService.dateFormatLong(nowDate,'yyyy-MM-dd')}}</span>
+			</ion-col>
+		</ion-row>
+		<ion-row class="btn_nav" >
+			<ion-col col-3 text-center  *ngIf=" commonService.permission[3] || commonService.permission[5] ">
+				<button class="business_btn" (click)="gotoSellermanagePage()">商家管理</button>
+			</ion-col>
+			<ion-col col-3 text-cente  *ngIf=" commonService.permission[4]">
+				<button class="picture_btn" (click)="gotoBusinessImgReviewPage()">图片审核</button>
+			</ion-col>
+			<ion-col col-3 text-cente  *ngIf=" commonService.permission[6]">
+				<button class="achievement_btn" (click)="gotoSettleAccountsPage()">业绩结算</button>
+			</ion-col>
+			<ion-col col-3 text-cente *ngIf=" commonService.permission[7]">
+				<button class="staff_btn" (click)="gotoEmployeeListPage()">员工管理</button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+ 	<ion-grid nomargin  class="navs">
+		<ion-row >
+			<ion-col col-4 (click)="gotoEssentialInforPage()" *ngIf=" commonService.permission[2]">
+				<div>
+					<img src="assets/images/jiben.png">
+					<p>基本信息</p>
+				</div>
+			</ion-col>
+			<ion-col col-4 (click)="gotoEPAccountPage()" *ngIf=" commonService.permission[1]">
+				<div>
+					<img src="assets/images/ep.png">
+					<p>EP账户</p>
+				</div>
+			</ion-col>
+			<ion-col col-4 (click)="gotoAreaCountPage()"  *ngIf=" commonService.permission[6]">
+				<div>
+					<img src="assets/images/quyu.png">
+					<p>区域统计</p>
+				</div>
+			</ion-col>
+			<ion-col col-4 (click)="gotoEmployeeListPage()" *ngIf=" commonService.permission[7]">
+				<div>
+					<img src="assets/images/yuangong.png">
+					<p>员工管理</p>
+				</div>
+			</ion-col>
+			<ion-col col-4 (click)="gotoForgetPasswordPage()" >
+				<div>
+					<img src="assets/images/mima.png">
+					<p>修改密码</p>
+				</div>
+			</ion-col>
+			<ion-col col-4>
+				<div (click)="exitLogin()">
+					<img src="assets/images/tuichu.png">
+					<p>退出</p>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<ion-grid nopadding nomargin  style="background-color: #fff;" *ngIf=" commonService.permission[3] || commonService.permission[4]">
+		<ion-row class="remind">
+  			<ion-col >
+    		    <button>提醒</button>
+            <span>代理区域入驻审核及商家图片审核提醒</span>
+  			</ion-col>
+		</ion-row>
+		<ion-row *ngIf=" commonService.permission[3]">
+			<ion-col (click)="gotoSellermanagePage()">
+				<span style="color:red;">{{shopCount}}</span>个入驻商家待审核
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf=" commonService.permission[4]">
+			<ion-col (click)="gotoBusinessImgReviewPage()">
+				<span style="color:red;">{{photoCount}}</span>个商品图片待审核
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-toolbar color="yanbao">
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToBackPage()" >
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title center>基本信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="background:#e5e5e5;">
+    <ion-list class="basicInfo"  *ngIf="infos!=null">
+        <ion-row class="agentInfo">
+            <ion-col>代理信息</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>公司名称：<span>{{infos.company}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>真实姓名：<span>{{infos.userName}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>身份证号：<span>{{infos.idcard}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>联系电话：<span>{{infos.servicePhone}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>代理等级：
+                    <span *ngIf="infos.agentLevel==1">省代理</span>
+                    <span *ngIf="infos.agentLevel==2">市代理</span>
+                    <span *ngIf="infos.agentLevel==3">区/县代理</span>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>代理地区：<span>{{infos.agentAreaId}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>电子邮箱：<span>{{infos.email}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>详细地址：<span>{{infos.address}}</span></ion-col>
+        </ion-row>
+    </ion-list>
+    <ion-list class="bankInfo"  *ngIf="infos!=null">
+        <ion-row class="bankInfoTitle">
+            <ion-col>银行信息</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>银行帐号：<span>{{infos.bankCard}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>银行名称：<span>{{infos.bankType}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>开户支行：<span>{{infos.bankBranch}}</span></ion-col>
+        </ion-row>
+    </ion-list>
+    <ion-list class="qualificationInfo"  *ngIf="infos!=null">
+        <ion-row class="qualificationInfoTitle">
+            <ion-col>资质信息</ion-col>
+        </ion-row>
+        <ion-row class="qualificationInfoImg"  *ngFor="let itm of infos.license">
+            <ion-col>
+                <img src="{{itm.path}}"/>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+</ion-content>

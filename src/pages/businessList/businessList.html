@@ -1,0 +1,74 @@
+<ion-header>
+   <ion-toolbar>
+  		<ion-buttons start>
+	          <button ion-button icon-only (click)="goToBackPage()">
+	            <ion-icon name="arrow-back"></ion-icon>
+	          </button>
+        </ion-buttons>
+        <ion-title center>商家列表</ion-title>
+         <select style="float: right; margin-right: 3px; border:1px solid #ccc; color: #666;padding: 3px;" #box (change)="selectStatu(box.value)">
+		<option value ="1,3"  selected = "selected" >全部状态</option>
+		<option value ="1" >营业中</option>
+		<option value ="3">已关闭</option>
+	</select>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+	<ion-grid nopadding nomargin  style="background-color: #fff;" *ngIf="commonService.user.agentLevel!='3'">
+		<ion-row class="addrs">
+			<ion-col >
+				<div (click)="findList('')">{{myAddr}}&gt;</div>
+			</ion-col>
+
+			<ion-col *ngIf="addrnum>0">
+				<div (click)="findList(addrs[0].value)">{{addrs[0].text}}</div>
+			</ion-col>
+
+			<ion-col *ngIf="addrnum>1">
+				<div (click)="findList(addrs[1].value)">{{addrs[1].text}}</div>
+			</ion-col>
+
+		<!-- 	<ion-col *ngIf="addrnum>2">
+				<div (click)="findList(addrs[2].value)">{{addrs[2].text}}</div>
+			</ion-col> -->
+
+			<ion-col >
+				<div class="nobg" (click)="goToSelectAddressPage()">更多地区</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+<div style="width:100%; background-color: #fff; padding: 10px 0;" *ngIf="items!=null">
+	<ion-list class="sellershoplist" *ngFor="let itm of items,let i=index" (click)="goToBusinessInfoPage(itm.id)">
+		  <ion-list-header>
+		    申请时间&nbsp;&nbsp;{{commonService.dateFormatLong(itm.createTime,'yy-MM-dd')}}
+		  </ion-list-header>
+		  <ion-item>
+		    <ion-thumbnail item-left>
+		      <img src="{{itm.icon}}">
+		    </ion-thumbnail>
+		   	<h2>{{itm.storeName}}</h2>
+		    <p>{{itm.addr}}</p>
+		    <div item-right text-right>
+		    	<h2 style="color:#0BE198" *ngIf="itm.status==1">营业中</h2>
+		    	<h2 style="color:#ff1e1e" *ngIf="itm.status==3">已关闭</h2>
+		    	<p *ngIf="itm.status==1" (click)="openInputpage(itm.id,i,$event)">关闭店铺</p>
+		    	<p *ngIf="itm.status==3" (click)="open($event)">开启店铺</p>
+		    </div>
+		  </ion-item>
+	</ion-list>
+	 <div *ngIf="items.length>0">
+             <p *ngIf="show" style="text-align: center;color: #666;;">下拉加载更多...</p>
+             <p *ngIf="!show"  style="text-align: center;color: #666;;">已经全部加载完了...</p>
+      </div>
+</div>
+  <div style="width:100%; height: 100%; background-color: #fff; text-align: center;"  *ngIf="items==null||items.length==0">
+      <img src="assets/images/null.png" style="margin:0 auto; max-width: 100%; margin-top: 40px;">
+    </div>
+ <ion-infinite-scroll *ngIf="showScroll" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

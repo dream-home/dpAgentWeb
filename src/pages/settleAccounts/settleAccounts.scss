@@ -1,0 +1,62 @@
+page-settleAccounts{
+     /*默认的修改头部返回箭头的样式*/
+        .bar-button-ios {
+          padding: 0 4px;
+          height: 25px;
+          border-radius: 4px;
+           font-size: 1.2rem; 
+        }
+        .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+            color: #333;
+            background-color: transparent;
+        }
+        
+    .settleAccounts{
+        margin:0;
+        .settleAccountsHead{
+            background:#f3b700;
+            ion-col{
+                font-size:12px;
+                color:#fff;
+                padding:5px 5px 5px 10px;
+            }
+        }
+        .settleAccountsInfo{
+            background:#fff;
+            .salesPerformance{
+                ion-col:nth-child(1){
+                    color:#ffad1e;
+                    padding:0;
+                    line-height:30px;
+                }
+                ion-col:nth-child(2){
+                    color:#ffad1e;
+                    padding:0;
+                    line-height:30px;
+                }
+                ion-col:nth-child(3){
+                    padding:0;
+                    line-height:30px;
+                }
+            }
+            .EPPerformance{
+                ion-col:nth-child(1){
+                    color:#0be198;
+                    line-height:34px;
+                    padding:0;
+                }
+                ion-col:nth-child(2){
+                    color:#0be198;
+                    line-height:34px;
+                    padding:0;
+                }
+                ion-col:nth-child(3){
+                    color:#ff1e1e;
+                    font-size:18px;
+                    line-height:34px;
+                    padding:0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+<ion-header>
+   <ion-toolbar>
+  		<ion-buttons start>
+	          <button ion-button icon-only (click)="goToBackPage()">
+	            <ion-icon name="arrow-back"></ion-icon>
+	          </button>
+        </ion-buttons>
+        <ion-title center>商家信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<!-- 商家详细信息-->
+	<ion-list class="shopInfo" style="margin-bottom: 0;" *ngIf="storeInfo!=null">
+	 <ion-item>
+	   	<span style="line-height: 27px;">商家编号：{{storeInfo.uid}}</span>
+	   </ion-item>
+	   <ion-item>
+	   <span style="line-height: 27px;">商家状态</span>
+	     <button *ngIf="storeInfo.status==1" ion-button small color="light" style="float: right; margin: 0; color:#0BE198;">营业中</button>
+	     <button *ngIf="storeInfo.status==3" ion-button small color="light" style="float: right; margin: 0;color:#ff1e1e;">已关闭</button>
+	     <button *ngIf="storeInfo.status==0" ion-button small color="light" style="float: right; margin: 0;color:#185ddc;">待审核</button>
+	     <button *ngIf="storeInfo.status==2" ion-button small color="light" style="float: right; margin: 0; color: #ff1e1e;">审核不通过</button>
+	   </ion-item>
+	  <ion-item>店铺名称：{{storeInfo.storeName}}</ion-item>
+	  <ion-item>申请人姓名：{{storeInfo.userName}}</ion-item>
+	  <ion-item>手机号：{{storeInfo.phone}}</ion-item>
+	   <ion-item>客服电话：{{storeInfo.servicePhone}}</ion-item>
+	  <ion-item>所在地区：{{storeInfo.province}}{{storeInfo.city}}</ion-item>
+	  <ion-item >
+	  		详细地址：{{storeInfo.addr}}
+	  </ion-item>
+	</ion-list>
+	<ion-grid nopadding nomargin style="background-color: #fff; border:none;"  *ngIf="storeInfo!=null">
+		<ion-row>
+			<ion-col >
+			店铺介绍：
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="borderbottom">
+				{{storeInfo.detail}}
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col >
+				店铺相册：
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="borderbottom imgs2">
+				<img *ngFor="let idCarimg of storeInfo.icons,let i=index" src="{{idCarimg.path}}" (click)="openShowBigImgPage(storeInfo.icons,i)">
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col >
+				商家身份认证信息（身份证正反面，手持身份证信息）
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="borderbottom imgs3">
+				<img *ngFor="let idCarimg of storeInfo.idcardIcons,let i=index" (click)="openShowBigImgPage(storeInfo.idcardIcons,i)" src="{{idCarimg.path}}" >
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col >
+				商家营业资质（营业执照，经营许可证等）
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col class="borderbottom imgs3" style="border:none;">
+				<img *ngFor="let storeimg of storeInfo.licenseIcons,let i=index" (click)="openShowBigImgPage(storeInfo.licenseIcons,i)"  src="{{storeimg.path}}" >
+			</ion-col>
+		</ion-row>
+</ion-grid>
+<div style="height:45px;"></div>
+</ion-content>
+<ion-footer  *ngIf="storeInfo!=null" style="background: #fff;">
+    <ion-title *ngIf="storeInfo.status==1">
+   		 <button ion-button small (click)="openInputpage(1)" style=" background-color:#1EB8FF;">关闭店铺</button>
+    </ion-title>
+    <ion-title *ngIf="storeInfo.status==0">
+   		 <button  ion-button small style="margin-right: 20px; background-color:#1EB8FF;" (click)="tongguo()">审核通过</button>
+   		 <button ion-button small color="light"  (click)="openInputpage(2)" style="margin-left: 20px;">审核不通过</button>
+    </ion-title>
+</ion-footer>

@@ -1,0 +1,162 @@
+page-addEmployee{
+   /*默认的修改头部返回箭头的样式*/
+        .bar-button-ios {
+          padding: 0 4px;
+          height: 25px;
+          border-radius: 4px;
+           font-size: 1.2rem; 
+        }
+        .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+            color: #333;
+            background-color: transparent;
+        }
+        
+    ion-input{
+        input{
+            height:30px;
+            width:100%;
+            position:absolute;
+            margin:0 0 0 0 !important;
+        }
+    }
+    .editEmployee{
+        background:#fff;
+        margin:3px 0 0 0 !important;
+        padding:10px 0;
+        .employeeAccounts{
+            ion-col{
+                line-height:30px;
+                padding-left:10px;
+                span{
+                    margin-left:23px;
+                    float:left;
+                    font-size:12px;
+                    color:#999;
+                }
+                ion-input{
+                    text-indent:8px;
+                    border:1px #dedede solid;
+                    height:30px;
+                    width:220px;
+                    float:left;
+                    margin-left:10px;
+                }
+                mark{
+                    color:red;
+                    background:none;
+                    margin-left:5px;
+                    font-size:18px;
+                    font-weight:bold;
+                }
+            }
+        }
+        .employeePrompt{
+            ion-col{
+                padding:0;
+                span{
+                    font-size:12px;
+                    color:#dedede;
+                    margin-left:80px;
+                    margin-top:-5px;
+                    float:left;
+                }
+            }
+        }
+        .employeeName,.employeePwd{
+            ion-col{
+                line-height:30px;
+                padding-left:10px;
+                span{
+                    float:left;
+                    font-size:12px;
+                    color:#999;
+                }
+                ion-input{
+                    text-indent:8px;
+                    border:1px #dedede solid;
+                    height:30px;
+                    width:220px;
+                    float:left;
+                    margin-left:10px;
+                }
+                mark{
+                    color:red;
+                    background:none;
+                    margin-left:5px;
+                    font-size:18px;
+                    font-weight:bold;
+                }
+            }
+        }
+    }
+    .operationAuthority{
+        background:#fff;
+        margin:3px 0 0 0 !important;
+        padding:0 0 10px 0;
+        .operationAuthorityTitle{
+            margin-bottom:10px;
+            ion-col{
+                border-bottom:1px #dedede solid;
+                span{
+                    margin-left:10px;
+                    float:left;
+                    color:#999;
+                }
+                mark{
+                    color:red;
+                    background:none;
+                    margin-left:5px;
+                    font-size:18px;
+                    font-weight:bold;
+                }
+            }
+        }
+        .authorityChoice{
+            padding:5px;
+            ion-col{
+                padding:0 0 0 5px;
+                ion-checkbox{
+                    float:left;
+                    border-radius:0;
+                    height:18px;
+                    width:18px;
+                    border:1px #c8c7cc solid;
+                    .checkbox-icon{
+                        border-radius:0;
+                        height:8px;
+                        width:8px;
+                        margin:4px auto 0 auto;
+                        border-color:#fff;
+                    }
+                }
+                .checkbox-ios .checkbox-checked{
+                    border-color:#FF651E;
+                    background-color:#FF651E;
+                }
+                span{
+                    float:left;
+                    margin-left:3px;
+                    font-size:12px;
+                }
+            }
+        }
+        .authorityButton{
+            ion-col{
+                margin-left:10px;
+                .authorityAdd{
+                    background:#FF651E;
+                    color:#fff;
+                    padding:5px 20px;
+                    border-radius:3px;
+                }
+                .authorityReset{
+                    background:#0be198;
+                    color:#fff;
+                    padding:5px 20px;
+                    border-radius:3px;
+                    margin-left:10px;
+                }
+            }
+        }
+    }
+}

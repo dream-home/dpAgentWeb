@@ -1,0 +1,30 @@
+<ion-header>
+   <ion-toolbar>
+  		<ion-buttons start>
+	          <button ion-button icon-only (click)="goToBackPage()">
+	            <ion-icon name="arrow-back"></ion-icon>
+	          </button>
+        </ion-buttons>
+        <ion-title center style="padding: 0 40px 1px;" *ngIf="goodImgs!=''" >{{goodImgs[0].goodName}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid *ngIf="goodImgs!=''" nopadding nomargin style="background-color: #fff; border:none;padding: 5px 0;" class="shopInfo">
+			<ion-row>
+				<ion-col class="havabg imgs2">
+					<div class="warpimg" *ngFor="let itm of goodImgs,let i=index " >
+						<img src="{{itm.path}}" (click)="openShowBigImgPage(goodImgs,i)">
+						
+					</div>
+					
+				</ion-col>
+			</ion-row>	
+	</ion-grid>
+</ion-content>
+<ion-footer style="background: #fff;">
+    <ion-title>
+   		 <button  ion-button small style="margin-right: 20px; background-color:#1EB8FF;" (click)="tongguo()">审核通过</button>
+   		 <button ion-button small color="light"  style="margin-left: 20px;" (click)="openInputpage()">审核不通过</button>
+    </ion-title>
+</ion-footer>

@@ -1,0 +1,71 @@
+page-imgReviewList{
+
+	/*默认的修改头部返回箭头的样式*/
+		.bar-button-ios {
+		  padding: 0 4px;
+		  height: 25px;
+		  border-radius: 4px;
+		   font-size: 1.2rem; 
+		}
+		.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+		    color: #333;
+		    background-color: transparent;
+		}
+	/*//下面一行是页面背景色*/
+	.scroll-content{background-color: #f4f4f4;}
+
+	.shopInfo{ background-color: #fff; margin-bottom:5px; }
+	.shopInfo .item-ios{
+		padding: 0 8px;
+	}
+	.shopInfo ion-label {
+	   overflow: auto; 
+	   white-space: normal; 
+	   font-size: 1.4rem;
+	}
+	.shopInfo .item-block{min-height: 0;}
+	.list-ios > .item-block:first-child {
+		  border-top:none;
+		}
+
+		.list-ios > .item-block:last-child{
+		  border-bottom:none;
+		}
+
+		.list-ios > .item-block:last-child .item-inner ,.borderbottom{
+		   border-bottom: 0.55px solid #c8c7cc;
+		}
+		.havabg{padding:0;}
+		.havabg .warpimg{ display: inline-block;  border:3px solid #dfdfdf; margin-bottom:3px; position: relative; }
+		.havabg .warpimg .checkbox-icon{margin-bottom: 0;}
+		.imgs2 .warpimg{width: 46.5%; margin-left: 2%;}
+		.imgs3 .warpimg{width: 31.5%; margin-left: 1%;}
+		.havabg .warpimg img{display: block; width: 100%;}
+		.havabg .warpimg ion-checkbox{position: absolute; z-index: 3; right: 0; bottom: 0; height: 21px; overflow: hidden;}
+
+
+		/*.radio-ios .radio-checked .radio-inner {
+		  left: 8px;
+		}
+
+		.radio-ios {
+		  border: 1px solid #ccc;
+		  border-radius: 50%;
+		}
+		.radio-ios .radio-icon {
+		  width:21px;
+		}*/
+
+		ion-col label{ 
+				vertical-align: top;
+			  margin-top: 10px;
+			  display: inline-block;
+			  font-size: 12px;
+			  margin-left: 10px;
+			}
+		ion-col label input{ 
+			vertical-align: top;
+		  margin-top:2px;
+		  margin-right: 2px;
+		}
+}

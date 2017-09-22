@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="yanbao">
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title center>EP转赠</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content style="background:#e5e5e5;">
+    <ion-grid class="EPGive">
+        <ion-list class="EPGiveInfo">
+            <ion-row class="EPGiveInfoName">
+                <ion-col>
+                    <span class="userAccount">用户账号：</span>
+                    <ion-input type="text" bindon-ngModel="userAccount" (blur)="checkUser()"></ion-input>
+                    <span class="showName">{{showName}}</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="EPGiveInfoNum">
+                <ion-col>
+                    <span>转赠数量：</span>
+                    <ion-input type="number" bindon-ngModel="sendNumber"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row class="EPGiveInfoPwd">
+                <ion-col>
+                    <span>操作密码：</span>
+                    <ion-input type="password" bindon-ngModel="sendPwd"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-row class="EPGiveDetermine">
+            <ion-col text-center>
+                <button (click)="submitData()">确&nbsp;定</button>
+            </ion-col>
+        </ion-row>
+        <ion-row class="EPGiveReset">
+            <ion-col text-center>
+                <button (click)="reset()">重&nbsp;置</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,32 @@
+page-businessList{
+		.bar-button-ios {
+		  padding: 0 4px;
+		  height: 25px;
+		  border-radius: 4px;
+		   font-size: 1.2rem; 
+		}
+		.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+		    color: #333;
+		    background-color: transparent;
+		}
+		/*商家列表*/
+		.sellershoplist{margin-bottom:15px; width: 98%; margin-left: auto;margin-right: auto;}
+		.sellershoplist ion-list-header{min-height:0px; background-color: #f4f4f4;}
+		.sellershoplist ion-list-header .label-ios{ margin: 0; color: #333; font-size: 1.4rem; line-height: 2rem; }
+
+		.sellershoplist ion-item{border-left: 0.55px solid #c8c7cc;border-right: 0.55px solid #c8c7cc;}
+		.sellershoplist h2{color: #333; font-size: 1.4rem; line-height: 2rem;}
+		.sellershoplist p{color: #666; font-size: 1.4rem;}
+
+		/*地区*/
+		.addrs div{
+			font-size: 1.4rem;
+			text-align: center;
+			background-color: #f4f4f4;
+			line-height:2.5rem;
+			color: #333;
+		}
+		.addrs div.nobg{
+			background-color: #fff;
+		}
+}

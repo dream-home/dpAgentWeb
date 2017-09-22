@@ -1,0 +1,15 @@
+
+
+<ion-content>
+	<div style="background-color: #fff; width: 80%;min-height: 50%;margin: 30% 0 0 10%;border-radius:5px; overflow:auto;max-height: 70%;">
+		 <h2 class="title">{{title}}</h2>
+		 <textarea bindon-ngModel="reason" placeholder="请输入{{title}}(至少输入10个字)" type="text" class="textstyle">
+		 	
+		 </textarea>
+		 <p style="color:red; text-align: center;" *ngIf="show" >确认失败，至少填写10个字哦~~~</p>
+		 <div style="text-align: center;padding:5px 0;">
+		 		<button ion-button small  (click)="dismissSure()" style="padding-left: 20px; padding-right: 20px; background-color:#1EB8FF;">确认</button>
+		 		<button ion-button small color="light" (click)="dismiss()"  style="padding-left: 20px; padding-right: 20px;">取消</button>
+		 </div>
+	 </div>
+</ion-content>

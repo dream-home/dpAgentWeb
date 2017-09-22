@@ -1,0 +1,16 @@
+<ion-header>
+   <ion-toolbar >
+  		<ion-buttons end>
+	          <button ion-button icon-only (click)="dismiss()">
+	           <ion-icon name="close"></ion-icon>
+	          </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-slides  pager="true" no-border no-padding initialSlide="{{index}}">
+        <ion-slide *ngFor="let itm of imgs">
+           <img src="{{itm.path}}">
+        </ion-slide>
+    </ion-slides>
+</ion-content>

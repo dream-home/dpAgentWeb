@@ -1,0 +1,77 @@
+page-home{
+	.toolbar-background-ios{
+			background:#fff;
+	}
+	.toolbar-title-ios{
+			color:#FF651E;
+	}
+	.header .toolbar-background{
+		background-color: #fff;
+		border-bottom: 1px solid #efefef;
+	}
+	.back-button.show-back-button {
+	  display:none;
+	}
+
+	.scroll-content{background-color: #f4f4f4;}
+	.Company_name{margin:5px 0; font-size: 1.5rem; font-weight: 500; text-align: center;}
+	.hui_color{color: #666; font-size: 1.4rem;}
+	.btn_nav button{
+		display: block;
+		width:100%;
+		color: #fff;
+		margin: 0 auto;
+		font-size: 1.4rem;
+		height:2.5rem;
+		line-height: 2.5rem;
+		font-weight: 500;
+		margin-top:8px;
+	}
+	.btn_nav ion-col{padding:0 5px;}
+	.business_btn{background-color: #ff1e1e;}
+	.picture_btn{background-color: #ffad1e;}
+	.achievement_btn{background-color: #1eb8ff;}
+	.staff_btn{background-color: #4fe65a;}
+
+	.navs{margin-top: 10px; padding:0 0 5px 0;}
+	.navs ion-col{
+		text-align: center;
+	}
+	.navs ion-col div{
+		padding-top: 10px;
+		width: 100%; background-color: #fff;
+	}
+	.navs ion-col p{
+		margin: 0;
+		padding:10px 0;
+	}
+	.navs ion-col img{
+		display: block;
+		width: 40%;
+		margin: 0 auto;
+	}
+	.navs ion-col:nth-child(3n+1)
+		{
+			padding-left: 0;
+		}
+	.navs ion-col:nth-child(3n)
+		{
+			padding-right: 0;
+		}
+		.remind{
+				button{
+						background:#FF651E;
+						color:#fff;
+						padding:5px 10px;
+				}
+				span{
+						color:#999;
+						margin-left:5px;
+				}
+		}
+		.messageInfo{
+				ion-col{
+						color:#FF651E;
+				}
+		}
+}

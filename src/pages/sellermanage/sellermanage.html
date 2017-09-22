@@ -1,0 +1,49 @@
+<ion-header>
+   <ion-toolbar>
+  		<ion-buttons start>
+	          <button ion-button icon-only (click)="goToBackPage()">
+	            <ion-icon name="arrow-back"></ion-icon>
+	          </button>
+        </ion-buttons>
+        <ion-title center>商家入驻申请</ion-title>
+        <ion-buttons end  *ngIf=" commonService.permission[5]">
+          <button ion-button color="dark" small outline (click)="goToBusinessListPage()">
+               商家列表
+          </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div style="width:100%; background-color: #fff; padding: 10px 0;"  *ngIf="items!=null">
+
+	<ion-list  class="sellershoplist" *ngFor="let itm of items" (click)="goToBusinessInfoPage(itm.id)">
+		  <ion-list-header>
+		    申请时间&nbsp;&nbsp;{{commonService.dateFormatLong(itm.createTime,'yyyy-MM-dd')}}
+		  </ion-list-header>
+		  <ion-item>
+		    <ion-thumbnail item-left>
+		      <img src="{{itm.icon}}">
+		    </ion-thumbnail>
+		    <h2>{{itm.storeName}}</h2>
+		    <p>{{itm.addr}}</p>
+		    <button ion-button clear item-right *ngIf="itm.status==0">
+		    	待审核
+		    </button>
+		    <button *ngIf="itm.status==2" ion-button clear item-right style="color:#ff1e1e;">
+		    	审核不通过
+		    </button>
+		  </ion-item>
+	</ion-list>
+	   <div *ngIf="items.length>0">
+             <p *ngIf="show&&items.length!=0" style="text-align: center;color:#666;">下拉加载更多...</p>
+             <p *ngIf="!show&&items.length!=0"  style="text-align: center;color: #666;;">已经全部加载完了...</p>
+        </div>
+</div>
+  <div style="width:100%; height: 100%; background-color: #fff; text-align: center;"  *ngIf="items==null">
+      <img src="assets/images/null.png" style="margin:0 auto; max-width: 100%; margin-top: 40px;">
+    </div>
+  <ion-infinite-scroll *ngIf="showScroll" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

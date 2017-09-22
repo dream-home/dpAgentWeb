@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>员工信息详情</ion-title>
+   
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+     
+   <ion-grid  *ngIf="staffInfo!=null" style="color: #666;">
+        <ion-row >
+            <ion-col>员工账号：<span  style="color: #ff1e1e;">{{staffInfo.staffAccount}}</span></ion-col>
+        </ion-row>
+         <ion-row >
+            <ion-col >员工名称：<span style="color:#1eb8ff;">{{staffInfo.staffName}}</span></ion-col>
+        </ion-row>
+         <ion-row >
+            <ion-col >员工状态：<span style="color: #ffad1e;">{{staffInfo.status}}</span></ion-col>
+        </ion-row>
+         <ion-row >
+            <ion-col >
+                员工权限:
+            </ion-col>
+        </ion-row>
+        <ion-row class="addrs">
+            <ion-col *ngFor="let itm of staffInfo.permission" col-4>
+                <div>{{itm.description}}</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

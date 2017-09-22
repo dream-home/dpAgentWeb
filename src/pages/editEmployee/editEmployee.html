@@ -1,0 +1,64 @@
+
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>编辑员工</ion-title>
+   
+    </ion-toolbar>
+</ion-header>
+<ion-content style="background:#e5e5e5;">
+    <ion-grid style="padding:0;" *ngIf="staffInfo!=null">
+        <ion-list class="editEmployee">
+            <ion-row class="employeeAccounts">
+                <ion-col>
+                    <span>账号：</span>
+                    <ion-input [disabled]="true" value="{{staffInfo.staffAccount}}"></ion-input>
+                    <mark>*</mark>
+                </ion-col>
+            </ion-row>
+            <ion-row class="employeePrompt">
+                <ion-col>
+                    <span>员工登录使用，字母和数字组合</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="employeeName">
+                <ion-col>
+                    <span>员工姓名：</span>
+                    <ion-input bindon-ngModel="staffName" placeholder="当前姓名:{{staffInfo.staffName}}"></ion-input>
+                    <mark>*</mark>
+                </ion-col>
+            </ion-row>
+             <ion-row class="employeeName">
+                <ion-col>
+                    <span>重置密码：</span>
+                    <ion-input bindon-ngModel="staffPassword" placeholder="请输入新密码" type="password"></ion-input>
+                    <mark>*</mark>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-list *ngIf="permission!=null" class="operationAuthority">
+            <ion-row class="operationAuthorityTitle">
+                <ion-col>
+                    <span>操作权限：</span>
+                   <!--  <mark>*</mark> -->
+                </ion-col>
+            </ion-row>
+             <ion-row class="authorityChoice">
+                <ion-col col-3 *ngFor="let itm of permission,let i=index " style="margin-bottom:8px;">
+                    <ion-checkbox [checked]="selectorPermission[i]" (click)="toggleTodoState(i)"></ion-checkbox>
+                    <span>{{itm.description}}</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="authorityButton">
+                <ion-col>
+                    <button class="authorityAdd" (click)="save()">保存</button>
+                    <button class="authorityReset" (click)="reset()">重置</button>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </ion-grid>
+</ion-content>
